@@ -10,5 +10,12 @@ import kristobad2 from './kristobad-2.png';
 import shellLogix1 from './shellLogix-1.png';
 import shellLogix2 from './shellLogix-2.png';
 import shellLogix3 from './shellLogix-3.png';
+import foodstop1 from './foodstop1.png';
+import foodstop2 from './foodstop2.png';
+import foodstop3 from './foodstop3.png';
+import foodstop4 from './foodstop4.png';
+import foodstop5 from './foodstop5.png';
+import foodstop6 from './foodstop6.png';
+import foodstop7 from './foodstop7.png';
 
-export {ide, idp, kristobad1, kristobad2, shellLogix1, shellLogix2, shellLogix3, oandm1, oandm2, oandm3, rio, laguna};
+export {ide, idp, kristobad1, kristobad2, shellLogix1, shellLogix2, shellLogix3, oandm1, oandm2, oandm3, rio, laguna, foodstop1, foodstop2, foodstop3, foodstop4, foodstop5, foodstop6, foodstop7};

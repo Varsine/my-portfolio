@@ -2,10 +2,17 @@ import {
   ide, idp, kristobad1, kristobad2,
   shellLogix1, shellLogix2, shellLogix3,
   oandm1, oandm2, oandm3,
-  rio, laguna
+  rio, laguna,
+  foodstop1, foodstop2, foodstop3, foodstop4, foodstop5, foodstop6, foodstop7,
 } from '../assets/index';
 
 export const projects = [
+  {
+    title: 'Online Fast Food & Delivery Platform',
+    description: 'Food-Stop.am is an online food ordering and delivery platform built to provide a fast, smooth, and user-friendly experience. The website allows customers to browse a rich menu of shawarma, pizza, BBQ, burgers, and combo meals, place orders easily, and track them in real time. Designed with performance and simplicity in mind, the platform focuses on clean UI, mobile responsiveness, secure checkout, and efficient order management. The goal was to create a reliable digital solution that helps a local food business increase online sales, streamline operations, and deliver a modern customer experience.',
+    images: [foodstop1, foodstop2, foodstop3, foodstop4, foodstop5, foodstop6, foodstop7],
+    live: 'https://food-stop.am',
+  },
   {
     title: 'Rio Platform',
     description: `Learning & work management system with video, quizzes, secure payments & analytics dashboard.
