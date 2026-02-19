@@ -1,80 +1,57 @@
-import { motion } from "framer-motion";
-import { skills } from "../utils/skills";
-import { Box, Typography, Grid, Chip, Paper } from "@mui/material";
+import React from 'react';
 
-const About = () => {
+const About: React.FC = () => {
   return (
-    <Box sx={{ py: 8, px: 3, background: "linear-gradient(180deg, #f8f9fa, #ffffff)" }}>
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        {/* Title */}
-        <Typography
-          variant="h4"
-          align="center"
-          gutterBottom
-          sx={{ fontWeight: "bold", color: "#333" }}
-        >
-          About Me
-        </Typography>
+    <section className="about" id="about">
+      <div className="container">
+        <div className="section-header" data-aos="fade-up">
+          <span className="section-label">Get To Know Me</span>
+          <h2 className="section-title">
+            About <span className="gradient-text">Me</span>
+          </h2>
+        </div>
+        <div className="about-content">
+          <div className="about-text" data-aos="fade-right">
+            <p className="lead">
+              With over 5 years of experience in frontend development, I specialize in building scalable, performant, and user-friendly web applications.
+            </p>
+            <p>
+              Expertise: <strong>React.js</strong>, <strong>Next.js</strong>, TypeScript, Redux, GraphQL. Passionate about clean code, modern UI, and performance.
+            </p>
+            <p>
+              Delivered projects from e-commerce to LMS platforms focusing on optimization, accessibility, and pixel-perfect implementation.
+            </p>
 
-        {/* Description */}
-        <Typography
-          variant="body1"
-          align="center"
-          maxWidth="md"
-          mx="auto"
-          sx={{ color: "#555", mb: 4 }}
-        >
-          I’m Varsine, a highly skilled frontend developer with 4+ years
-          experience in React.js, Next.js, and modern UI technologies. I love
-          solving tough problems, optimizing performance, and delivering clean
-          user experiences.
-        </Typography>
+            <div className="about-highlights">
+              {[
+                'Performance-focused development',
+                'Clean & maintainable code',
+                'Modern UI/UX implementation',
+                'Responsive & accessible design',
+              ].map((item) => (
+                <div className="highlight-item" key={item}>
+                  <i className="fas fa-check-circle"></i>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-        {/* Skills Section */}
-        <Paper
-          elevation={3}
-          sx={{
-            p: 4,
-            borderRadius: 4,
-            background: "rgba(255,255,255,0.9)",
-            maxWidth: 900,
-            mx: "auto"
-          }}
-        >
-          <Grid container spacing={2} justifyContent="center">
-            {skills.map((skill) => (
-              <Grid key={skill}>
-                <motion.div
-                  whileHover={{ scale: 1.1, boxShadow: "0px 4px 20px rgba(0,0,0,0.15)" }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Chip
-                    label={skill}
-                    sx={{
-                      cursor: "pointer",
-                      fontWeight: 500,
-                      px: 2,
-                      py: 0.5,
-                      background: "linear-gradient(45deg, #6a11cb, #2575fc)",
-                      color: "#fff",
-                      borderRadius: "20px",
-                      "&:hover": {
-                        background: "linear-gradient(45deg, #2575fc, #6a11cb)",
-                      }
-                    }}
-                  />
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Paper>
-      </motion.div>
-    </Box>
+          <div className="about-image" data-aos="fade-left">
+            <div className="image-frame">
+              <div className="frame-decoration"></div>
+              <div className="tech-floating">
+                {['react', 'js', 'css3'].map((tech, i) => (
+                  <div className="tech-badge" style={{ animationDelay: `${i * 0.5}s` }} key={tech}>
+                    <i className={`fab fa-${tech}`}></i>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

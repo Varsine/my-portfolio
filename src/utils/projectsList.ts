@@ -6,12 +6,26 @@ import {
   foodstop1, foodstop2, foodstop3, foodstop4, foodstop5, foodstop6, foodstop7,
 } from '../assets/index';
 
-export const projects = [
+export interface Project {
+  title: string;
+  description: string;
+  images: string[];
+  live?: string;
+  github?: string;
+  tags?: string[];       // optional
+  icon?: string;         // optional
+  features?: string[];   // optional
+}
+
+
+export const projects: Project[] = [
   {
     title: 'Online Fast Food & Delivery Platform',
     description: 'Food-Stop.am is an online food ordering and delivery platform built to provide a fast, smooth, and user-friendly experience. The website allows customers to browse a rich menu of shawarma, pizza, BBQ, burgers, and combo meals, place orders easily, and track them in real time. Designed with performance and simplicity in mind, the platform focuses on clean UI, mobile responsiveness, secure checkout, and efficient order management. The goal was to create a reliable digital solution that helps a local food business increase online sales, streamline operations, and deliver a modern customer experience.',
     images: [foodstop1, foodstop2, foodstop3, foodstop4, foodstop5, foodstop6, foodstop7],
     live: 'https://food-stop.am',
+    tags: ['React.js', 'Next.js', 'TypeScript', 'Stripe API', 'Performance Optimization'],
+    features: [],
   },
   {
     title: 'Rio Platform',
@@ -22,6 +36,8 @@ export const projects = [
     - Implemented video streaming and quizzes for an engaging learning experience`,
     images: [rio],
     live: 'https://sustainability.rio.ai/v2',
+    tags
+      : ['React.js', 'Next.js', 'TypeScript', 'Stripe API', 'WebSocket', 'Performance Optimization'],
   },
   {
     title: 'IDP - Intelligent Document Processing',
@@ -29,6 +45,7 @@ export const projects = [
     
     This tool enhances document handling efficiency, making it ideal for businesses and professionals who work extensively with PDFs.`,
     images: [idp],
+    tags: ['React.js', 'Next.js', 'TypeScript', 'PDF.js', 'Performance Optimization'],
   },
   {
     title: 'Laguna Wallet Extension',
@@ -37,6 +54,7 @@ export const projects = [
     - Provides seamless integration with decentralized applications (dApps)
     - Ensures a smooth and efficient Web3 experience for users.`,
     images: [laguna],
+    tags: ['React.js', 'Next.js', 'TypeScript', 'Web3.js', 'Performance Optimization'],
   },
   {
     title: 'O&M System - Service Platform',
@@ -48,6 +66,7 @@ export const projects = [
     images: [oandm1, oandm2, oandm3],
     github: 'https://github.com/Varsine/oandam',
     live: 'https://oandam.vercel.app',
+    tags: ['React.js', 'Next.js', 'TypeScript', 'WebSocket', 'Performance Optimization'],
   },
   {
     title: 'ShellLogix - Company Introduction Website',
@@ -56,6 +75,7 @@ export const projects = [
     - Integrated blog, contact forms, and lead generation tools
     - Built engaging animations to enhance user experience`,
     images: [shellLogix1, shellLogix2, shellLogix3],
+    tags: ['React.js', 'Next.js', 'TypeScript', 'Performance Optimization'],
   },
   {
     title: 'Kristobad – Shopping Site',
@@ -63,6 +83,7 @@ export const projects = [
     - Used GraphQL & REST APIs for seamless backend communication
     - Implemented real-time features using WebSockets for instant updates`,
     images: [kristobad1, kristobad2],
+    tags: ['React.js', 'Next.js', 'TypeScript', 'GraphQL', 'WebSocket', 'Performance Optimization'],
   },
   {
     title: 'IDE - Videos Platform',
@@ -72,5 +93,6 @@ export const projects = [
     - Ensured seamless video playback and interactive UI elements
     - Optimized platform performance, accessibility, and mobile responsiveness`,
     images: [ide],
+    tags: ['React.js', 'Next.js', 'TypeScript', 'Performance Optimization'],
   },
 ];

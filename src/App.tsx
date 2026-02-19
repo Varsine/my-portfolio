@@ -1,18 +1,28 @@
-import { CssBaseline, Box } from '@mui/material';
-import { About, Hero, Projects, Contact } from './components/index';
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
-      <CssBaseline />
-      <Box sx={{ bgcolor: '#f9f9f9', fontFamily: 'Roboto, sans-serif' }}>
+      <Navbar />
+      <main>
         <Hero />
         <About />
+        <Skills />
         <Projects />
         <Contact />
-      </Box>
+      </main>
+      <Footer />
     </>
   );
-}
+};
 
 export default App;
