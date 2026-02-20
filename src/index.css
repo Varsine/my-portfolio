@@ -493,6 +493,12 @@ section {
     overflow: hidden;
     box-shadow: var(--shadow-xl);
     border: 1px solid var(--bg-tertiary);
+    max-width: 100%;
+    width: 100%;
+}
+
+.code-window pre code {
+  text-wrap: auto; /* keeps line breaks, no wrapping */
 }
 
 .window-header {
