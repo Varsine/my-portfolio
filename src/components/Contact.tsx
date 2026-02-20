@@ -1,6 +1,5 @@
 import React from 'react';
 import emailjs from "@emailjs/browser";
-import { V } from 'framer-motion/dist/types.d-Cjd591yU';
 
 const Contact: React.FC = () => {
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import TypewriterTitle from './TypewriterText';
 
 const Hero: React.FC = () => {
   return (
@@ -18,7 +19,8 @@ const Hero: React.FC = () => {
           <h1 className="hero-title">
             Hi, I'm <span className="gradient-text">Varsine</span>
           </h1>
-          <h2 className="hero-subtitle">Frontend React.js/Next.js Developer</h2>
+           <TypewriterTitle />
+          {/* <h2 className="hero-subtitle">Frontend React.js/Next.js Developer</h2> */}
           <p className="hero-description">
             I'm a highly skilled frontend developer with <strong>5+ years of experience</strong> 
             in React.js, Next.js, and modern UI technologies.

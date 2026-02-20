@@ -741,8 +741,8 @@ section {
 .frame-decoration::before {
     content: '';
     position: absolute;
-    width: 200%;
-    height: 200%;
+    width: 250%;
+    height: 250%;
     background: conic-gradient(from 0deg,
             transparent 0deg,
             var(--primary) 60deg,
@@ -905,6 +905,10 @@ section {
     border-radius: var(--radius-xl);
     overflow: hidden;
     transition: all var(--transition-base);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    will-change: transform;
 }
 
 .project-card:hover {
@@ -940,6 +944,7 @@ section {
     justify-content: center;
     opacity: 0;
     transition: opacity var(--transition-base);
+    z-index: 10;
 }
 
 .project-card:hover .project-overlay {
@@ -1329,32 +1334,32 @@ section {
 }
 
 .project-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
+    transform: translateY(-6px);
 }
 
 .project-image {
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
 }
 
 .project-img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
 }
 
 .slick-slider {
-  width: 100%;
+    width: 100%;
 }
 
 /* ========================================
@@ -1366,10 +1371,6 @@ section {
     .about-image {
         height: 50%;
     }
-
-    .frame-decoration {
-    height: 50vh;
-  }
 
     .hero-content,
     .about-content,
@@ -1501,4 +1502,10 @@ section {
 :focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 2px;
+    color: #ff6a00;
 }

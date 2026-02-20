@@ -6,6 +6,7 @@
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@motionone/react": "^10.16.4",
     "@mui/icons-material": "^7.3.1",
     "@mui/material": "^7.3.1",
     "@testing-library/dom": "^10.4.1",

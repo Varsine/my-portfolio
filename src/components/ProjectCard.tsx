@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import React, { useState, useRef, ReactElement } from 'react';
 import Slider from "react-slick";
 
 interface ProjectCardProps {
@@ -9,13 +9,38 @@ interface ProjectCardProps {
         tags?: string[];
         link?: string;
         live?: string;
-        icon?: JSX.Element;
+        icon?: ReactElement;
         features?: string[];
     };
     delay?: number;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
+    const [rotateX, setRotateX] = useState(0);
+    const [rotateY, setRotateY] = useState(0);
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left; // mouse X in card
+        const y = e.clientY - rect.top;  // mouse Y in card
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateLimit = 10; // degrees
+
+        // calculate rotation
+        const rotY = ((x - centerX) / centerX) * rotateLimit;
+        const rotX = ((centerY - y) / centerY) * rotateLimit;
+
+        setRotateX(rotX);
+        setRotateY(rotY);
+    };
+
+    const handleMouseLeave = () => {
+        setRotateX(0);
+        setRotateY(0);
+    };
 
     const sliderSettings = {
         width: "100%",
@@ -30,7 +55,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
     const CardWrapper = project.live ? "a" : "div";
 
     return (
-        // <div className="project-card" data-aos="fade-up" data-aos-delay={delay}>
         <CardWrapper
             {...(project.live && {
                 href: project.live,
@@ -40,6 +64,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
             className="project-card"
             data-aos="fade-up"
             data-aos-delay={delay}
+            ref={cardRef as any}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                transform: `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+                transition: 'transform 0.2s ease-out',
+            }}
         >
             <div className="project-image">
                 <div className="project-overlay">
@@ -73,7 +104,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
                     ) : (
                         <i className="fas fa-box"></i>
                     )}
-                </div>      </div>
+                </div>
+            </div>
             <div className="project-content">
                 <div className="project-tags">
                     {(project.tags || []).map((tag) => (
