@@ -76,10 +76,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, delay = 0 }) => {
                 <div className="project-overlay">
                     <div className="project-links">
                         {project.live ? (
-                            <a href={project.live} target="_blank" rel="noopener noreferrer" className="project-link">
+                            <span className="project-link">
                                 <i className="fas fa-external-link-alt"></i>
                                 <span>Live Demo</span>
-                            </a>
+                            </span>
                         ) : (
                             <span className="project-link disabled">
                                 <i className="fas fa-lock"></i>

@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import emailjs from "@emailjs/browser";
 
 const Contact: React.FC = () => {
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formRef.current) return; 
 
     emailjs.sendForm(
       process.env.REACT_APP_EMAILJS_SERVICE_ID!,
       process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
-      e.currentTarget,
+      formRef.current,
       process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
     )
       .then(() => {
-        alert("Message sent successfully!");
-        e.currentTarget.reset();
+        setStatus({ type: 'success', message: 'Message sent successfully!' });
+        formRef.current?.reset();
       })
       .catch((error) => {
         console.error(error);
-        alert("Something went wrong.");
+        setStatus({ type: 'error', message: 'Something went wrong. Please try again.' });
       });
   };
 
@@ -58,7 +61,7 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="contact-form-wrapper" data-aos="fade-left">
-            <form onSubmit={sendEmail} className="contact-form" id="contact-form">
+            <form ref={formRef} onSubmit={sendEmail} className="contact-form" id="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="John Doe" required />
@@ -75,6 +78,15 @@ const Contact: React.FC = () => {
                 <label htmlFor="message">Message</label>
                 <textarea id="message" name="message" rows={6} placeholder="Tell me about your project..." required></textarea>
               </div>
+
+              {status && (
+                <div
+                  className={`form-status ${status.type === 'success' ? 'status-success' : 'status-error'}`}
+                >
+                  {status.message}
+                </div>
+              )}
+
               <button type="submit" className="btn btn-primary btn-block">
                 Send Message <i className="fas fa-paper-plane"></i>
               </button>
